@@ -37,6 +37,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
+    "electron-load-devtool": "^0.3.0",
     "react-hot-loader": "3.0.0-beta.6",
     "webpack-dev-server": "^1.15.1"
   },

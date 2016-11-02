@@ -1,11 +1,11 @@
 const electron = require('electron');
+const loadDevtool = require('electron-load-devtool');
+const path = require('path')
+const url = require('url')
 
 const app = electron.app;
 
 const BrowserWindow = electron.BrowserWindow;
-
-const path = require('path')
-const url = require('url')
 
 let mainWindow;
 
@@ -19,6 +19,7 @@ function createWindow () {
     slashes: true,
   }));
 
+  loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS, loadDevtool.REDUX_DEVTOOLS);
   mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
