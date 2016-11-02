@@ -17,12 +17,13 @@ function createWindow () {
     slashes: true,
   }));
 
-  Promise.all([
-    loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS),
-    loadDevtool(loadDevtool.REDUX_DEVTOOLS),
-  ]).then(() => {
-    mainWindow.webContents.openDevTools();
-  });
+  // Promise.all([
+  //   loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS),
+  //   loadDevtool(loadDevtool.REDUX_DEVTOOLS),
+  // ]).then(() => {
+  //
+  // });
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null;
