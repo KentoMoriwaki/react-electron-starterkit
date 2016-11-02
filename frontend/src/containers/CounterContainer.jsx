@@ -15,7 +15,7 @@ class CounterContainer extends Component {
   }
 
   componentDidUpdate() {
-    this.renderMenu()
+    // this.renderMenu()
   }
 
   renderMenu() {
