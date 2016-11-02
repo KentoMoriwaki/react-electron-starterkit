@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './Counter.css';
 
-export const Counter = ({ count, onClick, onSave }) => (
+const Counter = ({ count, onClick, onSave }) => (
   <div className={styles.base}>
     <div className={styles.header}>
       <h2>Welcome to React</h2>
@@ -10,7 +10,7 @@ export const Counter = ({ count, onClick, onSave }) => (
       className={styles.intro}
       onClick={onClick}
     >
-      Clicked: { count }!
+      Clicked: {count}!
     </p>
     <div>
       <button onClick={onSave}>
