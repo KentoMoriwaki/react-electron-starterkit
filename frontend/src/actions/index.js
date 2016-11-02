@@ -26,3 +26,8 @@ export const saveCount = () => async (dispatch, getStore) => {
     count: json.count,
   });
 };
+
+export const resetCount = () => ({
+  type: actionTypes.COUNT_UPDATED,
+  count: 0,
+});

@@ -3,9 +3,7 @@ const loadDevtool = require('electron-load-devtool');
 const path = require('path')
 const url = require('url')
 
-const app = electron.app;
-
-const BrowserWindow = electron.BrowserWindow;
+const { app, ipcMain, BrowserWindow, Menu } = electron;
 
 let mainWindow;
 
@@ -28,6 +26,18 @@ function createWindow () {
 
   mainWindow.on('closed', function () {
     mainWindow = null;
+  });
+
+  ipcMain.on('update-menu', function(e, template) {
+    template.forEach((menu, i) => {
+      menu.submenu.forEach((submenu, i) => {
+        submenu.click = (item, focusedWindow) => {
+          focusedWindow.webContents.send('store-dispatch', submenu.action);
+        };
+      });
+    });
+    const menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
   });
 }
 

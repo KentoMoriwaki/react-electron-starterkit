@@ -6,6 +6,14 @@ import RootContainer from './containers/RootContainer';
 
 const store = configureStore();
 
+// Expose dispatch to communicate with Electron process
+if (window && window.process && window.process.type == 'renderer') {
+  const ipcRenderer = window.require('electron').ipcRenderer;
+  ipcRenderer.on('store-dispatch', (e, action) => {
+    store.dispatch(action);
+  });
+}
+
 render(
   <AppContainer>
     <RootContainer store={store} />

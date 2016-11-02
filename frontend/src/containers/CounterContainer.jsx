@@ -5,11 +5,36 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import Counter from '../components/Counter';
 
+import { updateMenu } from '../utils/electron';
+
 class CounterContainer extends Component {
 
   componentDidMount() {
     const { actions } = this.props;
-    actions.loadCount();
+    // actions.loadCount();
+    this.renderMenu()
+  }
+
+  componentDidUpdate() {
+    this.renderMenu()
+  }
+
+  renderMenu() {
+    updateMenu([
+      {
+        label: "Counter",
+        submenu: [
+          {
+            label: 'Increment',
+            action: actions.increaseCount(),
+          },
+          {
+            label: 'Reset',
+            action: actions.resetCount(),
+          },
+        ]
+      }
+    ]);
   }
 
   render() {
