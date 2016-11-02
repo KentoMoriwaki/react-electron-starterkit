@@ -11,8 +11,7 @@ class CounterContainer extends Component {
 
   componentDidMount() {
     const { actions } = this.props;
-    // actions.loadCount();
-    this.renderMenu()
+    // this.renderMenu()
   }
 
   componentDidUpdate() {
@@ -43,7 +42,7 @@ class CounterContainer extends Component {
       <Counter
         count={counter.count}
         onClick={actions.increaseCount}
-        onSave={actions.saveCount}
+        //onClick={actions.increaseCountWithDelay}
       />
     );
   }

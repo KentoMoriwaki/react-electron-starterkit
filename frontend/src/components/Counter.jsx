@@ -12,18 +12,12 @@ const Counter = ({ count, onClick, onSave }) => (
     >
       Clicked: {count}!
     </p>
-    <div>
-      <button onClick={onSave}>
-        Save!
-      </button>
-    </div>
   </div>
 );
 
 Counter.propTypes = {
   count: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired,
 };
 
 export default Counter;
